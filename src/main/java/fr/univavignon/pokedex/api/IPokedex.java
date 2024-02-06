@@ -11,7 +11,8 @@ import java.util.List;
  */
 public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 
-	
+
+
 	/**
 	 * Returns the number of pokemon this pokedex contains.
 	 * 
