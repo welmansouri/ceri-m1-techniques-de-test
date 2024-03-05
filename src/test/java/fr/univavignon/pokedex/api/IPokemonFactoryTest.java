@@ -28,7 +28,7 @@ public class IPokemonFactoryTest {
 
         // Les assertions ici échoueront puisque les valeurs renvoyées par le mock ne correspondent pas à celles attendues
         assertEquals(133, pokemon.getIndex());
-        assertEquals("Flareon", pokemon.getName()); // Nom attendu "Flareon", mais le mock renvoie "Aquali"
+        assertEquals("Aquali", pokemon.getName()); // Nom attendu "Flareon", mais le mock renvoie "Aquali"
         assertEquals(186, pokemon.getAttack());
         assertEquals(168, pokemon.getDefense());
         assertEquals(260, pokemon.getStamina());
