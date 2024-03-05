@@ -40,7 +40,7 @@ public class IPokedexTest {
     @Test
     public void testSize() {
         when(this.iPokedex.size()).thenReturn(151);
-        assertEquals(100, this.iPokedex.size());
+        assertEquals(151, this.iPokedex.size());
     }
 
 
