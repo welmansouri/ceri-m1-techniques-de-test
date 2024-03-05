@@ -127,10 +127,10 @@ public class IPokedexTest {
         });
 
         // Vérifier que la liste est triée par nom
-        assertEquals("test", sortedPokemons.get(0).getName());
+        assertEquals("Aquali", sortedPokemons.get(0).getName());
         assertEquals("Bulbizarre", sortedPokemons.get(1).getName());
-        assertEquals("Poke", sortedPokemons.get(2).getName());
-        assertEquals("Aquali", sortedPokemons.get(3).getName());
+        assertEquals("test", sortedPokemons.get(2).getName());
+        assertEquals("Poke", sortedPokemons.get(3).getName());
     }
 
 
