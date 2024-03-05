@@ -61,6 +61,20 @@ public class IPokedexTest {
 
     }
 
+    @Test
+    void testPokemonClass() throws PokedexException {
+        //Find pokemon By index
+        when(this.iPokedex.getPokemon(133)).thenReturn(new Pokemon(133, "Aquali", 186,
+                168, 260, 2729, 202
+                , 5000, 4, 0.91));
+        Pokemon pokemon = this.iPokedex.getPokemon(133);
+        //tester que le nom de Pokemon égale à Aquali
+
+        assertEquals("Bulbizarre", pokemon.getName());
+        //tester que c'est bien un type Pokemon
+        assertEquals(Pokemon.class, pokemon.getClass());
+    }
+
 
 
 
