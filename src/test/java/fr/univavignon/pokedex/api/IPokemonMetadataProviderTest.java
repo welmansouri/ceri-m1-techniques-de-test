@@ -12,6 +12,7 @@ import static org.mockito.Mockito.when;
 public class IPokemonMetadataProviderTest {
     private IPokemonMetadataProvider metadataProvider;
 
+
     @BeforeAll
     public void setUp() {
         metadataProvider = mock(IPokemonMetadataProvider.class);
