@@ -47,6 +47,7 @@ public class IPokemonTrainerFactoryTest {
         assertEquals(team, pokemonTrainer.getTeam());
     }
 
+
     @Test
     public void testCreateWithNullParams() {
         Team team = Team.INSTINCT;
