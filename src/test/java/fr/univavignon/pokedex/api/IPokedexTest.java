@@ -70,7 +70,7 @@ public class IPokedexTest {
         Pokemon pokemon = this.iPokedex.getPokemon(133);
         //tester que le nom de Pokemon égale à Aquali
 
-        assertEquals("Bulbizarre", pokemon.getName());
+        assertEquals("Aquali", pokemon.getName());
         //tester que c'est bien un type Pokemon
         assertEquals(Pokemon.class, pokemon.getClass());
     }
