@@ -28,6 +28,6 @@ public class IPokedexFactoryTest {
         when(this.pokedexFactory.createPokedex(this.metadataProvider, this.pokemonFactory)).
                 thenReturn(mock(IPokedex.class));
         IPokedex iPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
-        assertEquals(null, iPokedex);
+        assertNotEquals(null, iPokedex);
     }
 }
