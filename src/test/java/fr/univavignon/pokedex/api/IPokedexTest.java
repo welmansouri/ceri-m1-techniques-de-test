@@ -76,6 +76,27 @@ public class IPokedexTest {
     }
 
 
+    @Test
+    void getPokemons() {
+        when(this.iPokedex.getPokemons()).thenReturn(pokemons);
+        List<Pokemon> pokemons = this.iPokedex.getPokemons();
+        //Vérifier que la liste n'est pas null!!!
+        assertNotNull(pokemons);
+        //Vérifier que la taille de la liste!!!
+
+        assertEquals(1, pokemons.size());
+        try{
+            pokemons.add(new Pokemon(4,
+                    "Wafae", 128, 108,
+                    78, 613, 64,
+                    4000, 4, 0.91));
+            fail("On peut pas modifier la liste ");
+        } catch (UnsupportedOperationException e) {
+        }
+        //Vérifié que l'élément n'a pas été ajouté à la liste
+        assertEquals(4, pokemons.size());
+    }
+
 
 
 }
