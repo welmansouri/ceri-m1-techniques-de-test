@@ -84,7 +84,7 @@ public class IPokedexTest {
         assertNotNull(pokemons);
         //Vérifier que la taille de la liste!!!
 
-        assertEquals(1, pokemons.size());
+        assertEquals(3, pokemons.size());
         try{
             pokemons.add(new Pokemon(4,
                     "Wafae", 128, 108,
@@ -94,7 +94,7 @@ public class IPokedexTest {
         } catch (UnsupportedOperationException e) {
         }
         //Vérifié que l'élément n'a pas été ajouté à la liste
-        assertEquals(4, pokemons.size());
+        assertEquals(3, pokemons.size());
     }
 
 
