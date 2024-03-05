@@ -99,4 +99,45 @@ public class IPokedexTest {
 
 
 
+    @Test
+    public void testPokemonsSortedByName() {
+        // Créer une liste de Pokemons non triée
+        List<Pokemon> pokemons = Arrays.asList(
+                new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 0.91),
+                new Pokemon(0, "Bulbizarre", 130, 130, 100, 613, 64, 4000, 4, 0.91),
+                new Pokemon(1,
+                        "test", 140, 150,
+                        110, 654, 54,
+                        4000, 5, 0.90),
+                new Pokemon(3,
+                        "Poke", 129, 109,
+                        79, 614, 64,
+                        4001, 4, 0.94)
+        );
+
+        // Définir le comportement attendu de iPokedex.getPokemons(PokemonComparators.NAME)
+        when(iPokedex.getPokemons(PokemonComparators.NAME)).thenReturn(pokemons);
+
+        // Appeler iPokedex.getPokemons(PokemonComparators.NAME) dans votre code
+        List<Pokemon> sortedPokemons = iPokedex.getPokemons(PokemonComparators.NAME);
+
+        // Vérifier que la liste ne peut pas être modifiée
+        assertThrows(UnsupportedOperationException.class, () -> {
+            sortedPokemons.add(new Pokemon(8, "TestTest", 128, 108, 78, 613, 64, 4000, 4, 0.91));
+        });
+
+        // Vérifier que la liste est triée par nom
+        assertEquals("test", sortedPokemons.get(0).getName());
+        assertEquals("Bulbizarre", sortedPokemons.get(1).getName());
+        assertEquals("Poke", sortedPokemons.get(2).getName());
+        assertEquals("Aquali", sortedPokemons.get(3).getName());
+    }
+
+
+
+
+
+
+
+
 }
