@@ -69,7 +69,7 @@ public class IPokemonTrainerFactoryTest {
 
         // Assertions pour chaque cas où un paramètre est null
         assertThrows(IllegalArgumentException.class, () -> pokemonTrainerFactory.createTrainer(null, team, pokedexFactory));
-        assertThrows(IllegalArgumentException.class, () -> pokemonTrainerFactory.createTrainer("helo", null, pokedexFactory));
+        assertThrows(IllegalArgumentException.class, () -> pokemonTrainerFactory.createTrainer(trainerName, null, pokedexFactory));
         assertThrows(IllegalArgumentException.class, () -> pokemonTrainerFactory.createTrainer(trainerName, team, null));
     }
 
