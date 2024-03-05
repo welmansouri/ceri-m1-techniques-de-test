@@ -43,6 +43,24 @@ public class IPokedexTest {
         assertEquals(151, this.iPokedex.size());
     }
 
+    @Test
+    void testAddPokemon() throws PokedexException {
+        //tester ajouter un pokemon
+        Pokemon pokemon = new Pokemon(3,
+                "Poke", 129, 109,
+                79, 614, 64,
+                4001, 4, 0.94);
+        when(this.iPokedex.addPokemon(pokemon)).thenReturn(3);
+        int index = this.iPokedex.addPokemon(pokemon);
+        //recuperer le pokemon ajouté
+        when(this.iPokedex.getPokemon(index)).thenReturn(pokemon);
+        Pokemon pokemonNew = this.iPokedex.getPokemon(index);
+        //verification que le pokemon a bien été ajouté
+
+        assertEquals("Pokee", pokemonNew.getName());
+
+    }
+
 
 
 
