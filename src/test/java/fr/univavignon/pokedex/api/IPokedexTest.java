@@ -57,7 +57,7 @@ public class IPokedexTest {
         Pokemon pokemonNew = this.iPokedex.getPokemon(index);
         //verification que le pokemon a bien été ajouté
 
-        assertEquals("Pokee", pokemonNew.getName());
+        assertEquals("Poke", pokemonNew.getName());
 
     }
 
