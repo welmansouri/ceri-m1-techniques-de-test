@@ -42,8 +42,8 @@ public class IPokemonTrainerFactoryTest {
 
         // Assertions
         assertNotNull(pokemonTrainer);
-        assertEquals("hello", pokemonTrainer.getName());
-        assertEquals("helo", pokemonTrainer.getTeam());
+        assertEquals(trainerName, pokemonTrainer.getName());
+        assertEquals(team, pokemonTrainer.getTeam());
     }
 
 
