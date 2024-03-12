@@ -1,4 +1,4 @@
-name: TECHTEST
+name: Upload coverage reports to Codecov
 
 on:
   push:
