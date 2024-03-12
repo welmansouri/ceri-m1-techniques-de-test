@@ -14,6 +14,7 @@ import static org.mockito.Mockito.when;
 
 public class IPokedexFactoryTest {
 
+
     private IPokedexFactory pokedexFactory;
     private IPokemonMetadataProvider metadataProvider;
     private IPokemonFactory pokemonFactory;
