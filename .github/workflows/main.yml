@@ -1,34 +1,27 @@
-name: Upload coverage reports to Codecov
-
-on:
-  push:
-    branches:
-      - main  # Changez ceci avec le nom de votre branche principale
-  pull_request:
-    branches:
-      - main  # Changez ceci avec le nom de votre branche principale
-
+version: 2.1
+orbs:
+  codecov: codecov/codecov@4.0.1
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-and-test:
+    docker:
+      
+image: cimg/openjdk:17.0
+  steps:
+checkout
+run:
+    name: Run Maven Test
+    command: mvn test
+store_artifacts:
+  path: target
+codecov/upload
 
-    steps:
-    - name: Checkout du code
-      uses: actions/checkout@v2
-
-    - name: Configuration de Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Installation des dépendances
-      run: npm install
-
-    - name: Exécution des tests
-      run: npm test
-
-    - name: Téléchargement des rapports de couverture vers Codecov
-      uses: codecov/codecov-action@v4.0.1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        slug: welmansouri/ceri-m1-techniques-de-test
+Job
+workflows:
+  version: 2
+  build-and-test-on-master:
+    jobs:
+      
+build-and-test:
+        filters:
+          branches:
+            only: master
