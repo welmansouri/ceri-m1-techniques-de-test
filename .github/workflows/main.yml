@@ -1,5 +1,34 @@
-- name: TECHTEST
-  uses: codecov/codecov-action@v4.0.1
-  with:
-    token: ${{ secrets.CODECOV_TOKEN }}
-    slug: welmansouri/ceri-m1-techniques-de-test
+name: TECHTEST
+
+on:
+  push:
+    branches:
+      - main  # Changez ceci avec le nom de votre branche principale
+  pull_request:
+    branches:
+      - main  # Changez ceci avec le nom de votre branche principale
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v2
+
+    - name: Configuration de Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Installation des dépendances
+      run: npm install
+
+    - name: Exécution des tests
+      run: npm test
+
+    - name: Téléchargement des rapports de couverture vers Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: welmansouri/ceri-m1-techniques-de-test
