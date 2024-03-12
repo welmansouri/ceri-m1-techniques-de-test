@@ -1,0 +1,27 @@
+version: 2.1
+orbs:
+  codecxxxxxxxxxxxov: codecov/codecov@4.0.1
+jobs:
+  builxxxxxxxxd-and-test:
+    docker:
+      
+image: cimg/openjdk:17.0
+  steps:xxxxxxxxxx
+checkoutxxxxxxx
+run:
+    name: Run Maven Test
+    command: mvn test
+store_artifacts:
+  path: target
+codecov/upload
+
+Job
+workflows:
+  version: 2
+  build-and-test-on-master:
+    jobs:
+      
+build-and-test:
+        filters:
+          branches:
+            only: master
