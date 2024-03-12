@@ -1,24 +1,25 @@
 version: 2.1
-
+orbs:
+  codecov: codecov/codecov@4.0.1
 jobs:
-  build:
+  build-and-test:
     docker:
-      - image: circleci/openjdk:8-jdk  # Utilisation d'une image Docker avec Java 8
-
-    working_directory: ~/project
-
+      - image: cimg/openjdk:17.0
     steps:
-      - checkout  # Récupération du code source du repository
-
+      - checkout
       - run:
-          name: Execute unit tests with Maven
-          command: mvn test  # Exécution des tests unitaires avec Maven
+          name: Run Maven Test
+          command: mvn test
+      - store_artifacts:
+          path: target
+      - codecov/upload
 
+# Job
 workflows:
   version: 2
-  build:
+  build-and-test-on-master:
     jobs:
-      - build:
+      - build-and-test:
           filters:
             branches:
-              only: master  # Exécution uniquement sur la branche master
+              only: master
