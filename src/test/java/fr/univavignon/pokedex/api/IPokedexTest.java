@@ -133,7 +133,15 @@ public class IPokedexTest {
         assertEquals("Poke", sortedPokemons.get(3).getName());
     }
 
+    @Test
+    void testGetPokemonsNonModifiable() {
+        IPokedex pokedex = new PokedexImplement();
 
+        List<Pokemon> pokemons = pokedex.getPokemons();
+        assertThrows(UnsupportedOperationException.class, () -> {
+            pokemons.add(new Pokemon(2, "wafae", 199, 201, 140, 610, 60, 4000, 4, 0.91));
+        });
+    }
 
 
 
