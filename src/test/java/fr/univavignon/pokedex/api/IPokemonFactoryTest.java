@@ -60,12 +60,12 @@ public class IPokemonFactoryTest {
         Pokemon pokemon = this.pokemonFactory.createPokemon(0, 614, 70,
                 4000, 5);
 
-        assertEquals(613, pokemon.getCp());
-        assertEquals(69, pokemon.getHp());
-        assertEquals(4001, pokemon.getDust());
-        assertEquals(1, pokemon.getIndex());
+        assertEquals(614, pokemon.getCp());
+        assertEquals(70, pokemon.getHp());
+        assertEquals(4000, pokemon.getDust());
+        assertEquals(0, pokemon.getIndex());
 
-        assertEquals(2, pokemon.getCandy());
+        assertEquals(5, pokemon.getCandy());
 
     }
 
