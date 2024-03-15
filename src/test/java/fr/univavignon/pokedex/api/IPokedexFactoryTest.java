@@ -31,12 +31,18 @@ public class IPokedexFactoryTest {
     }
 
     @Test
-    public void testCreatePokedexWithZeroSize() {
-        when(this.pokedexFactory.createPokedex(this.metadataProvider, this.pokemonFactory)).
-                thenReturn(mock(IPokedex.class));
-        IPokedex iPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
-        assertNotEquals(null, iPokedex);
-        when(iPokedex.size()).thenReturn(0);
-        assertEquals(0, iPokedex.size());
+    public void throwExceptionIfParamsNull() {
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokedexFactory.createPokedex(null, null);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokedexFactory.createPokedex(null, pokemonFactory);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokedexFactory.createPokedex(metadataProvider, null);
+        });
     }
 }
