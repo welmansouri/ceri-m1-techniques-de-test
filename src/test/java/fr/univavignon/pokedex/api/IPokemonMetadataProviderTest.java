@@ -18,21 +18,7 @@ public class IPokemonMetadataProviderTest {
         metadataProvider =new PokemonMetadataProvider();
     }
 
-    @Test
-    public void testGetPokemonMetadata() throws PokedexException {
-        // Définir le comportement attendu pour le mock
-        when(this.metadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0,
-                "Bulbizarre", 126, 126, 90));
-        // Appeler la méthode à tester
-        PokemonMetadata metadata = metadataProvider.getPokemonMetadata(0);
 
-        // Vérifier si les résultats sont conformes aux attentes
-        assertEquals("Bulbizarre", metadata.getName());
-        assertEquals(0, metadata.getIndex());
-        assertEquals(126, metadata.getAttack());
-        assertEquals(126, metadata.getDefense());
-        assertEquals(90, metadata.getStamina());
-    }
 
     @Test
     public void testMetaDataShouldBeCorrectlyRetrievedBulbizarre() throws PokedexException {
