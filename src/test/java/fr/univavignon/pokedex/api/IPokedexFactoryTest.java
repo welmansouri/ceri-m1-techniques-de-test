@@ -45,4 +45,10 @@ public class IPokedexFactoryTest {
             pokedexFactory.createPokedex(metadataProvider, null);
         });
     }
+
+    @Test
+    public void testVerifPokedex() {
+        IPokedex iPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+        assertNotEquals(0, iPokedex.size());
+    }
 }
