@@ -49,6 +49,6 @@ public class IPokedexFactoryTest {
     @Test
     public void testVerifPokedex() {
         IPokedex iPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
-        assertNotEquals(0, iPokedex.size());
+        assertEquals(0, iPokedex.size());
     }
 }
