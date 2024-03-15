@@ -15,8 +15,10 @@ public class IPokemonFactoryTest {
 
     @Before
     public void setUp() {
-        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
-        this.pokemonFactory = mock(IPokemonFactory.class);
+        //bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
+        //this.pokemonFactory = mock(IPokemonFactory.class);
+        this.pokemonFactory = new PokemonFactory();
+
     }
 
     @Test
@@ -50,6 +52,22 @@ public class IPokemonFactoryTest {
 
     }
 
+
+
+    // Test la création d'un pokemon avec les bonnes valeurs
+    @Test
+    public void testcreatePokemonShouldReturnCorrectPokemon() throws PokedexException {
+        Pokemon pokemon = this.pokemonFactory.createPokemon(0, 614, 70,
+                4000, 5);
+
+        assertEquals(613, pokemon.getCp());
+        assertEquals(69, pokemon.getHp());
+        assertEquals(4001, pokemon.getDust());
+        assertEquals(1, pokemon.getIndex());
+
+        assertEquals(2, pokemon.getCandy());
+
+    }
 
 
 }
