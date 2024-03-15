@@ -43,9 +43,8 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 ## Badges
 
-- CircleCI: ![CircleCI]([https://img.shields.io/circleci/build/github/welmansouri/ceri-m1-techniques-de-test?label=CircleCI&logo=circleci&style=flat-square](https://app.circleci.com/pipelines/github/welmansouri/ceri-m1-techniques-de-test?branch=master))
-- Couverture de test: ![Coverage]([https://img.shields.io/badge/coverage-[XX%]-brightgreen.svg](https://app.codecov.io/gh/welmansouri/ceri-m1-techniques-de-test)https://app.codecov.io/gh/welmansouri/ceri-m1-techniques-de-test)
-
+- CircleCI: [![CircleCI](https://img.shields.io/circleci/build/github/welmansouri/ceri-m1-techniques-de-test?label=CircleCI&logo=circleci&style=flat-square)](https://app.circleci.com/pipelines/github/welmansouri/ceri-m1-techniques-de-test?branch=master)
+- Couverture de test: [![Coverage](https://img.shields.io/badge/coverage-[XX%]-brightgreen.svg)](https://app.codecov.io/gh/welmansouri/ceri-m1-techniques-de-test)
 
 ## Les Dates de Dernier commit pour chaque TP
 
