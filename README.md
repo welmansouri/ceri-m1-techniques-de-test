@@ -35,3 +35,22 @@ Pour chaque rendu vous devez créer un tag à partir du commit qui correspond à
 Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin de séance sera celui considéré.
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
+
+## Équipe
+
+- **Nom:** EL MANSOURI Wafae
+- **Groupe:** M1-Alternant
+
+## Badges
+
+- CircleCI: [![CircleCI](https://img.shields.io/circleci/build/github/welmansouri/ceri-m1-techniques-de-test?label=CircleCI&logo=circleci&style=flat-square)](https://app.circleci.com/pipelines/github/welmansouri/ceri-m1-techniques-de-test?branch=master)
+- Couverture de test: [![Coverage](https://img.shields.io/badge/coverage-[XX%]-brightgreen.svg)](https://app.codecov.io/gh/welmansouri/ceri-m1-techniques-de-test)
+
+## Les Dates de Dernier commit pour chaque TP
+
+Les dates de fin pour chaque TP sont les suivantes :
+
+- **TP1:** [Date de fin]
+- **TP2:** [Date de fin]
+- **TP3:** 15/03/2024
+
