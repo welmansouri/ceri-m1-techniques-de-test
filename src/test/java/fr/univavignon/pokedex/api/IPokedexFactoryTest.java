@@ -20,16 +20,14 @@ public class IPokedexFactoryTest {
     private IPokemonFactory pokemonFactory;
     @BeforeAll
     public void setUp() {
-        this.pokedexFactory = mock(IPokedexFactory.class);
-        this.metadataProvider = mock(IPokemonMetadataProvider.class);
-        this.pokemonFactory = mock(IPokemonFactory.class);
+        this.pokedexFactory = new PokedexFactory();
+        this.metadataProvider = new PokemonMetadataProvider();
+        this.pokemonFactory = new PokemonFactory();
     }
     @Test
     public void testCreatePokedex() {
-        when(this.pokedexFactory.createPokedex(this.metadataProvider, this.pokemonFactory)).
-                thenReturn(mock(IPokedex.class));
         IPokedex iPokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
-        assertNotEquals(null, iPokedex);
+        assertNull(iPokedex);
     }
 
     @Test

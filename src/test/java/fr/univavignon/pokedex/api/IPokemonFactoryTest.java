@@ -10,9 +10,12 @@ import static org.mockito.Mockito.*;
 public class IPokemonFactoryTest {
 
     private IPokemonFactory pokemonFactory;
+    private Pokemon bulbizarre;
+
 
     @Before
     public void setUp() {
+        bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 0.56);
         this.pokemonFactory = mock(IPokemonFactory.class);
     }
 
@@ -46,4 +49,7 @@ public class IPokemonFactoryTest {
 
 
     }
+
+
+
 }
