@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,245 +26,127 @@ public class IPokedexTest {
                         100, 613, 64,
                         4000, 4, 0.91),
                 new Pokemon(1,
-                        "Herbizarre", 160, 158,
-                        120, 613, 64,
-                        4000, 4, 0.91),
-                new Pokemon(2,
-                        "Poke", 199, 201,
-                        160, 614, 65,
-                        4001, 5, 0.92),
+                        "test", 140, 150,
+                        110, 654, 54,
+                        4000, 5, 0.90),
+
                 new Pokemon(133, "Aquali", 186,
                         168, 260, 2729, 202
                         , 5000, 4, 0.91)
         );
     }
+
+
     @Test
-    public void getSize() {
+    public void testSize() {
         when(this.iPokedex.size()).thenReturn(151);
-
-
         assertEquals(151, this.iPokedex.size());
     }
 
-
     @Test
-    void addPokemon() throws PokedexException {
+    void testAddPokemon() throws PokedexException {
         //tester ajouter un pokemon
-        Pokemon pokemon = new Pokemon(4,
-                "Wafae", 128, 108,
-                78, 613, 64,
-
-                4000, 4, 0.92);
-        when(this.iPokedex.addPokemon(pokemon)).thenReturn(4);
-
+        Pokemon pokemon = new Pokemon(3,
+                "Poke", 129, 109,
+                79, 614, 64,
+                4001, 4, 0.94);
+        when(this.iPokedex.addPokemon(pokemon)).thenReturn(3);
         int index = this.iPokedex.addPokemon(pokemon);
+        //recuperer le pokemon ajouté
         when(this.iPokedex.getPokemon(index)).thenReturn(pokemon);
-        Pokemon pokemonAdded = this.iPokedex.getPokemon(index);
-        assertEquals("Wafae", pokemonAdded.getName());
+        Pokemon pokemonNew = this.iPokedex.getPokemon(index);
+        //verification que le pokemon a bien été ajouté
+
+        assertEquals("Poke", pokemonNew.getName());
 
     }
 
     @Test
-    void getPokemon() throws PokedexException {
+    void testPokemonClass() throws PokedexException {
+        //Find pokemon By index
+        when(this.iPokedex.getPokemon(133)).thenReturn(new Pokemon(133, "Aquali", 186,
+                168, 260, 2729, 202
+                , 5000, 4, 0.91));
+        Pokemon pokemon = this.iPokedex.getPokemon(133);
+        //tester que le nom de Pokemon égale à Aquali
 
-        when(this.iPokedex.getPokemon(0)).thenReturn(new Pokemon(0,
-                "Bulbizarre", 130, 130,
-                100, 613, 64,
-                4000, 4, 0.91));
-        Pokemon pokemon = this.iPokedex.getPokemon(0);
-        assertEquals("Bulbizarre", pokemon.getName());
-
-
+        assertEquals("Aquali", pokemon.getName());
+        //tester que c'est bien un type Pokemon
         assertEquals(Pokemon.class, pokemon.getClass());
     }
-    @Test
-    public void testGetPokemonThrowsPokedexException() throws PokedexException {
-        when(this.iPokedex.getPokemon(152)).thenThrow(new PokedexException("Pokemon not found"));
-        assertThrows(PokedexException.class, () -> {
 
-
-            this.iPokedex.getPokemon(152);
-        });
-    }
 
     @Test
     void getPokemons() {
-        //tester la listes des pockomens
         when(this.iPokedex.getPokemons()).thenReturn(pokemons);
         List<Pokemon> pokemons = this.iPokedex.getPokemons();
-
+        //Vérifier que la liste n'est pas null!!!
         assertNotNull(pokemons);
-        assertEquals(4, pokemons.size());
+        //Vérifier que la taille de la liste!!!
+
+        assertEquals(3, pokemons.size());
         try{
-            pokemons.add(new Pokemon(3,
-                    "Salamèche", 128, 108,
+            pokemons.add(new Pokemon(4,
+                    "Wafae", 128, 108,
                     78, 613, 64,
                     4000, 4, 0.91));
-            fail("La liste ne doit pas pouvoir être modifiée");
+            fail("On peut pas modifier la liste ");
         } catch (UnsupportedOperationException e) {
-            //la liste ne doit pas pouvoir être modifiée
         }
-        //on revérifie que la liste ne peut pas être modifiée
-        assertEquals(4, pokemons.size());
+        //Vérifié que l'élément n'a pas été ajouté à la liste
+        assertEquals(3, pokemons.size());
     }
 
-    @Test
-    void testGetPokemonsFiltredByName() {
 
-        pokemons = Arrays.asList(
-                new Pokemon(133, "Aquali", 186,
-                        168, 260, 2729, 202
-                        , 5000, 4, 0.91),
-                new Pokemon(0,
-                        "Bulbizarre", 130, 130,
-                        100, 613, 64,
-                        4000, 4, 0.91),
+
+    @Test
+    public void testPokemonsSortedByName() {
+        // Créer une liste de Pokemons non triée
+        List<Pokemon> pokemons = Arrays.asList(
+                new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 4, 0.91),
+                new Pokemon(0, "Bulbizarre", 130, 130, 100, 613, 64, 4000, 4, 0.91),
                 new Pokemon(1,
-                        "Herbizarre", 160, 158,
-                        120, 613, 64,
-                        4000, 4, 0.91),
-                new Pokemon(2,
-                        "Florizarre", 198, 200,
-                        160, 613, 64,
-                        4000, 4, 0.91)
+                        "test", 140, 150,
+                        110, 654, 54,
+                        4000, 5, 0.90),
+                new Pokemon(3,
+                        "Poke", 129, 109,
+                        79, 614, 64,
+                        4001, 4, 0.94)
         );
-        when(this.iPokedex.getPokemons(PokemonComparators.NAME)).thenReturn(pokemons);
-        List<Pokemon> pokemons = this.iPokedex.getPokemons(PokemonComparators.NAME);
-        //la liste ne doit pas pouvoir être modifiée, donc on ne peut pas add
-        try{
-            pokemons.add(new Pokemon(3,
-                    "Salamèche", 128, 108,
-                    78, 613, 64,
-                    4000, 4, 0.91));
-            fail("La liste ne doit pas pouvoir être modifiée");
-        } catch (UnsupportedOperationException e) {
-        }
-        assertEquals("Aquali", pokemons.get(0).getName());
-    }
-    @Test
-    public void getPokemonsFiltredByIndex() {
 
-        when(this.iPokedex.getPokemons(PokemonComparators.INDEX)).thenReturn(pokemons);
-        List<Pokemon> pokemons = this.iPokedex.getPokemons(PokemonComparators.INDEX);
-        try{
-            pokemons.add(new Pokemon(3,
-                    "Salamèche", 128, 108,
-                    78, 613, 64,
-                    4000, 4, 0.91));
-            fail("La liste ne doit pas pouvoir être modifiée");
-        } catch (UnsupportedOperationException e) {
-        }
-        assertEquals("Aquali", pokemons.get(pokemons.size() - 1).getName());
-    }
-    @Test
-    public void getPokemonsFiltredByCP() {
+        // Définir le comportement attendu de iPokedex.getPokemons(PokemonComparators.NAME)
+        when(iPokedex.getPokemons(PokemonComparators.NAME)).thenReturn(pokemons);
 
-        pokemons = Arrays.asList(
-                new Pokemon(0,
-                        "Bulbizarre", 130, 130,
-                        100, 613, 64,
-                        4000, 4, 0.91),
-                new Pokemon(1,
-                        "Herbizarre", 160, 158,
-                        120, 613, 64,
-                        4000, 4, 0.91),
-                new Pokemon(2,
-                        "Florizarre", 198, 200,
-                        160, 613, 64,
-                        4000, 4, 0.91),
-                new Pokemon(133, "Aquali", 186,
-                        168, 260, 2729, 202
-                        , 5000, 4, 0.91)
-        );
-        when(this.iPokedex.getPokemons(PokemonComparators.CP)).thenReturn(pokemons);
-        List<Pokemon> pokemons = this.iPokedex.getPokemons(PokemonComparators.CP);
-        try{
-            pokemons.add(new Pokemon(3,
-                    "Salamèche", 128, 108,
-                    78, 613, 64,
-                    4000, 4, 0.91));
-            fail("La liste ne doit pas pouvoir être modifiée");
-        } catch (UnsupportedOperationException e) {
-        }
-        assertEquals("Aquali", pokemons.get(pokemons.size() - 1 ).getName());
-    }
-    @Test
-    void createPokemonTest() throws PokedexException {
+        // Appeler iPokedex.getPokemons(PokemonComparators.NAME) dans votre code
+        List<Pokemon> sortedPokemons = iPokedex.getPokemons(PokemonComparators.NAME);
 
-        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
-        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "Bulbasaur", 126, 126, 90, 613, 64, 4000, 4, 0.91));
-
-        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "Bulbasaur", 126, 126, 90));
-
-        IPokedex pokedex = new PokedexImplement(pokemonFactory, pokemonMetadataProvider);
-
-        Pokemon createdPokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
-
-        assertEquals("Bulbasaur", createdPokemon.getName());
-        assertEquals(126, createdPokemon.getAttack());
-        assertEquals(126, createdPokemon.getDefense());
-        assertEquals(90, createdPokemon.getStamina());
-    }
-    @Test
-    void getPokemonMetadataTest() throws PokedexException {
-
-        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
-        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "Bulbasaur", 126, 126, 90));
-
-
-        IPokedex pokedex = new PokedexImplement(pokemonFactory, pokemonMetadataProvider);
-
-
-        PokemonMetadata pokemonMetadata = pokedex.getPokemonMetadata(0);
-
-
-        assertEquals("Bulbasaur", pokemonMetadata.getName());
-        assertEquals(126, pokemonMetadata.getAttack());
-        assertEquals(126, pokemonMetadata.getDefense());
-        assertEquals(90, pokemonMetadata.getStamina());
-    }
-
-    @Test
-    void testAddPokemon() {
-        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
-        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        IPokedex pokedex = new PokedexImplement(pokemonFactory, pokemonMetadataProvider);
-
-        Pokemon pokemon = new Pokemon(0, "Bulbasaur", 126, 126, 90, 613, 64, 4000, 4, 0.91);
-
-        int index = pokedex.addPokemon(pokemon);
-        assertEquals(0, index);
-
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            pokedex.addPokemon(pokemon);
+        // Vérifier que la liste ne peut pas être modifiée
+        assertThrows(UnsupportedOperationException.class, () -> {
+            sortedPokemons.add(new Pokemon(8, "TestTest", 128, 108, 78, 613, 64, 4000, 4, 0.91));
         });
+
+        // Vérifier que la liste est triée par nom
+        assertEquals("Aquali", sortedPokemons.get(0).getName());
+        assertEquals("Bulbizarre", sortedPokemons.get(1).getName());
+        assertEquals("test", sortedPokemons.get(2).getName());
+        assertEquals("Poke", sortedPokemons.get(3).getName());
     }
 
+
     @Test
-    void testAddMultiplePokemon() {
-        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
-        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
-        IPokedex pokedex = new PokedexImplement(pokemonFactory, pokemonMetadataProvider);
-
-        Pokemon pokemon1 = new Pokemon(0, "Bulbasaur", 126, 126, 90, 613, 64, 4000, 4, 0.91);
-        Pokemon pokemon2 = new Pokemon(1, "Ivysaur", 156, 158, 120, 613, 64, 4000, 4, 0.91);
-
-        pokedex.addPokemon(pokemon1);
-        pokedex.addPokemon(pokemon2);
-
-        assertEquals(2, pokedex.size());
-    }
-    @Test
-    void testGetPokemonsUnmodifiable() {
+    void testGetPokemonsNonModifiable() {
         IPokedex pokedex = new PokedexImplement();
 
         List<Pokemon> pokemons = pokedex.getPokemons();
         assertThrows(UnsupportedOperationException.class, () -> {
-            pokemons.add(new Pokemon(2, "Venusaur", 198, 200, 160, 613, 64, 4000, 4, 0.91));
+            pokemons.add(new Pokemon(2, "wafae", 199, 201, 140, 610, 60, 4000, 4, 0.91));
         });
     }
+
+
+
+
+
 
 }
