@@ -183,6 +183,14 @@ public class IPokedexTest {
 
 
 
+    @Test
+    public void getPokemonThrowsPokedexExceptionTest() throws PokedexException {
+        when(this.iPokedex.getPokemon(0)).thenThrow(new PokedexException("Erreur : Pokemon non trouvé "));
+
+        assertThrows(PokedexException.class, () -> {
+            this.iPokedex.getPokemon(0);
+        });
+    }
 
 
 
