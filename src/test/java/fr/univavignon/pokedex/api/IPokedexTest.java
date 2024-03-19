@@ -144,6 +144,26 @@ public class IPokedexTest {
         });
     }
 
+    @Test
+    void createPokemonTest() throws PokedexException {
+
+        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
+        when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "wafae", 136, 122, 80, 612, 64, 4000, 5, 0.91));
+
+        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "wafae", 136, 122, 80));
+
+        IPokedex pokedex = new PokedexImplement(pokemonFactory, pokemonMetadataProvider);
+
+        Pokemon createdPokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
+
+        assertEquals("wafae", createdPokemon.getName());
+
+    }
+
+
+
+
 
 
 
