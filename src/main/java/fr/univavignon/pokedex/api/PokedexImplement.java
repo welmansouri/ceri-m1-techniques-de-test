@@ -47,7 +47,7 @@ public class PokedexImplement implements IPokedex {
 
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-        if (id < 0 || id >= CAPACITY) {
+        if (id < 0 ) {
             throw new PokedexException("Index non valide");
         } else {
             
