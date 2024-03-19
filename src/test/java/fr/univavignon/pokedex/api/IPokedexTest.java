@@ -217,4 +217,22 @@ public class IPokedexTest {
         assertEquals("Aquali", pokemons.get(pokemons.size() - 1).getName());
     }
 
+
+    @Test
+    void testajouetPokemon() {
+        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
+        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+        IPokedex pokedex = new PokedexImplement(pokemonFactory, pokemonMetadataProvider);
+
+        Pokemon pokemon = new Pokemon(0, "Bulbasaur", 126, 126, 90, 613, 64, 4000, 4, 0.91);
+
+        int index = pokedex.addPokemon(pokemon);
+        assertEquals(0, index);
+
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            pokedex.addPokemon(pokemon);
+        });
+    }
+
 }
