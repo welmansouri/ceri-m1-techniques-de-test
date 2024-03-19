@@ -33,11 +33,6 @@ public class IPokemonFactoryTest {
         // Ajoutez d'autres assertions si nécessaire
     }
 
-    // Testez d'autres méthodes de votre PokemonFactory si nécessaire
-
-
-
-    // Test la création d'un pokemon avec les bonnes valeurs
     @Test
     public void testcreatePokemonShouldReturnCorrectPokemon() throws PokedexException {
         Pokemon pokemon = this.pokemonFactory.createPokemon(0, 614, 70,

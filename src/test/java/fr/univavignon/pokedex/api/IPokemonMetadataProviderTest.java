@@ -22,7 +22,6 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void testMetaDataShouldBeCorrectlyRetrievedBulbizarre() throws PokedexException {
-        // Vérification des informations récupérées pour Bulbizarre
         PokemonMetadata pokemonMetadata = metadataProvider.getPokemonMetadata(0);
         assertEquals("Bulbasaur", pokemonMetadata.getName());
         assertEquals(126, pokemonMetadata.getAttack());
@@ -41,7 +40,6 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void testMetaDataShouldThrowPokemonException() {
-        // Vérification du lancement de l'exception pour un index invalide (151)
         assertThrows(PokedexException.class, () -> {
             metadataProvider.getPokemonMetadata(151);
         });
@@ -49,7 +47,6 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void testMetaDataShouldThrowPokemonExceptionNegativeIndex() {
-        // Vérification du lancement de l'exception pour un index négatif (-1)
         assertThrows(PokedexException.class, () -> {
             metadataProvider.getPokemonMetadata(-1);
         });
@@ -57,15 +54,13 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void testMetaDataShouldThrowPokemonExceptionWhenPokemonNotFound() {
-        // Vérifie le lancement de l'exception pour un Pokémon non présent dans la liste
         assertThrows(PokedexException.class, () -> {
-            metadataProvider.getPokemonMetadata(10); // Un index qui n'existe pas dans la liste
+            metadataProvider.getPokemonMetadata(10);
         });
     }
 
     @Test
     public void testMetaDataShouldThrowPokemonExceptionWhenInvalidIndex() {
-        // Vérifie le lancement de l'exception pour un index inconnu (par exemple 1000)
         assertThrows(PokedexException.class, () -> {
             metadataProvider.getPokemonMetadata(1000);
         });
