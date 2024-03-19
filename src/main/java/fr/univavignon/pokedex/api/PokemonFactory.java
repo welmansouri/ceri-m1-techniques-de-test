@@ -5,8 +5,6 @@ public class PokemonFactory implements IPokemonFactory{
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
 
 
-        return new Pokemon(index, "", 0,
-                0, 0, cp,
-                hp, dust,candy ,0);
+        return new Pokemon(index, "", 0, 0, 0, cp, hp, dust,candy ,0);
     }
 }
