@@ -201,5 +201,20 @@ public class IPokedexTest {
         });
     }
 
+    @Test
+    public void getPokemonsFiltredByIndexTest() {
+
+        when(this.iPokedex.getPokemons(PokemonComparators.INDEX)).thenReturn(pokemons);
+        List<Pokemon> pokemons = this.iPokedex.getPokemons(PokemonComparators.INDEX);
+        try{
+            pokemons.add(new Pokemon(0,
+                    "wafae", 128, 108,
+                    78, 613, 64,
+                    4000, 4, 0.91));
+            fail("La liste ne doit pas pouvoir être modifiée");
+        } catch (UnsupportedOperationException e) {
+        }
+        assertEquals("Aquali", pokemons.get(pokemons.size() - 1).getName());
+    }
 
 }
