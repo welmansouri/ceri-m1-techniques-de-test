@@ -12,12 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class IPokemonTrainerFactoryTest {
     private IPokemonTrainerFactory pokemonTrainerFactory;
-
     @BeforeAll
     public void setUp() {
         pokemonTrainerFactory = new PokemonTrainerFactory(); // Utilisez votre implémentation réelle de l'usine de dresseurs Pokémon
     }
-
     @Test
     public void testCreatePokemonTrainer() {
         Team team = Team.INSTINCT;
@@ -39,6 +37,4 @@ public class IPokemonTrainerFactoryTest {
         assertEquals(trainerName, pokemonTrainer.getName());
         assertEquals(team, pokemonTrainer.getTeam());
     }
-
-
 }
