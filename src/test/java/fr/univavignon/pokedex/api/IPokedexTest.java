@@ -162,7 +162,24 @@ public class IPokedexTest {
     }
 
 
+    @Test
+    void getTestPokemonMetadata() throws PokedexException {
 
+        IPokemonMetadataProvider pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
+        IPokemonFactory pokemonFactory = mock(IPokemonFactory.class);
+        when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0, "wafae", 127, 127, 100));
+
+
+        IPokedex pokedex = new PokedexImplement(pokemonFactory, pokemonMetadataProvider);
+
+
+        PokemonMetadata pokemonMetadata = pokedex.getPokemonMetadata(0);
+
+
+        assertEquals("wafae", pokemonMetadata.getName());
+        assertEquals(127, pokemonMetadata.getAttack());
+
+    }
 
 
 
