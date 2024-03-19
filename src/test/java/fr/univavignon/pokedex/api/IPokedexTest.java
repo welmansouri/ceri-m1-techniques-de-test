@@ -18,7 +18,7 @@ public class IPokedexTest {
     @BeforeAll
     public void setUp() {
         //création d'un mock pour l'interface IPokedex
-        this.iPokedex = mock(IPokedex.class);
+        //this.iPokedex = mock(IPokedex.class);
         //créer une liste de pokemons pour tester les méthodes sur la liste des pokemons
         pokemons = Arrays.asList(
                 new Pokemon(0,
