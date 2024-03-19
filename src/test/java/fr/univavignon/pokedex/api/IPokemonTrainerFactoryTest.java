@@ -4,7 +4,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -41,7 +42,7 @@ public class IPokemonTrainerFactoryTest {
         PokemonTrainer pokemonTrainer = pokemonTrainerFactory.createTrainer(trainerName, team, pokedexFactory);
 
         // Assertions
-        assertNull(pokemonTrainer);
+        assertNotNull(pokemonTrainer);
         assertEquals(trainerName, pokemonTrainer.getName());
         assertEquals(team, pokemonTrainer.getTeam());
     }
