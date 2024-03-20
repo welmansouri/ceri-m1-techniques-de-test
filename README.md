@@ -39,7 +39,7 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 ## Équipe
 
 - **Nom:** EL MANSOURI Wafae
-- **Groupe:** M1-Alternant
+- **Groupe:** M1-ILSEN-Alternant
 
 ## Badges
 
@@ -50,7 +50,9 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 Les dates de fin pour chaque TP sont les suivantes :
 
-- **TP1:** [Date de fin]
-- **TP2:** [Date de fin]
-- **TP3:** 15/03/2024
+- **TP1:** 06/02/2024
+- **TP2:** 06/02/2024
+- **TP3:** 06/03/2024
+- - **TP4:** 20/03/2024
+
 
