@@ -46,6 +46,8 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 - CircleCI: [![CircleCI](https://img.shields.io/circleci/build/github/welmansouri/ceri-m1-techniques-de-test?label=CircleCI&logo=circleci&style=flat-square)](https://app.circleci.com/pipelines/github/welmansouri/ceri-m1-techniques-de-test?branch=master)
 - Couverture de test: [![codecov](https://codecov.io/gh/welmansouri/ceri-m1-techniques-de-test/graph/badge.svg?token=Y74O0SJAHR)](https://codecov.io/gh/welmansouri/ceri-m1-techniques-de-test)
 
+- [![Checkstyle](/target/site/badges/checkstyle-result.svg)](/target/checkstyle-result.xml)
+
 ## Les Dates de Dernier commit pour chaque TP
 
 Les dates de fin pour chaque TP sont les suivantes :
