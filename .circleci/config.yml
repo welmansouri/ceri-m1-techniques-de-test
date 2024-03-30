@@ -14,12 +14,14 @@ jobs:
           name: Run Checkstyle
           command: mvn checkstyle:check
       - run:
+          name : upload-to-codecov
+          command: bash <(curl -s https://codecov.io/bash)
+      - run:
           name: Make docs
           command: mvn javadoc:javadoc
       - persist_to_workspace:
           root: target/site
           paths: apidocs
-      - codecov/upload
 
   docs-deploy:
     docker:
@@ -45,7 +47,8 @@ jobs:
           command: |
             echo "Deploy docs to gh-pages branch"
             gh-pages --dotfiles --message "[skip ci] Updates" --dist target/site/apidocs
-   
+          
+
 
 workflows:
   version: 2
