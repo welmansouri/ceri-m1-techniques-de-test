@@ -39,18 +39,22 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 ## Équipe
 
 - **Nom:** EL MANSOURI Wafae
-- **Groupe:** M1-Alternant
+- **Groupe:** M1-ILSEN-Alternant
 
 ## Badges
 
 - CircleCI: [![CircleCI](https://img.shields.io/circleci/build/github/welmansouri/ceri-m1-techniques-de-test?label=CircleCI&logo=circleci&style=flat-square)](https://app.circleci.com/pipelines/github/welmansouri/ceri-m1-techniques-de-test?branch=master)
-- Couverture de test: [![Coverage](https://img.shields.io/badge/coverage-XX%25-brightgreen.svg)](https://app.codecov.io/gh/welmansouri/ceri-m1-techniques-de-test)
+- Couverture de test: [![codecov](https://codecov.io/gh/welmansouri/ceri-m1-techniques-de-test/graph/badge.svg?token=Y74O0SJAHR)](https://codecov.io/gh/welmansouri/ceri-m1-techniques-de-test)
+
+- [![Checkstyle](/target/site/badges/checkstyle-result.svg)](/target/checkstyle-result.xml)
 
 ## Les Dates de Dernier commit pour chaque TP
 
 Les dates de fin pour chaque TP sont les suivantes :
 
-- **TP1:** [Date de fin]
-- **TP2:** [Date de fin]
-- **TP3:** 15/03/2024
+- **TP1:** 06/02/2024
+- **TP2:** 06/02/2024
+- **TP3:** 06/03/2024
+- - **TP4:** 20/03/2024
+
 
