@@ -1,6 +1,8 @@
 version: 2
+
 orbs:
   codecov: codecov/codecov@4.0.1
+
 jobs:
   build:
     docker:
@@ -47,18 +49,20 @@ jobs:
           command: |
             echo "Deploy docs to gh-pages branch"
             gh-pages --dotfiles --message "[skip ci] Updates" --dist target/site/apidocs
-          
-
 
 workflows:
   version: 2
-  build:
+  build-and-deploy:
     jobs:
       - build:
           filters:
             branches:
               only:
                 - master
-  upload-to-codecov:
-    jobs:
-      - build
+      - docs-deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
