@@ -37,8 +37,8 @@ jobs:
           name: Install and configure dependencies
           command: |
             npm install -g --silent gh-pages@2.0.1
-            git config user.email "nclsurban@gmail.com"
-            git config user.name "Nicolas Urban"
+            git config user.email "wafae.el-mansouri@alumni.univ-avignon.fr"
+            git config user.name "welmanouri"
       - add_ssh_keys:
           fingerprints:
             - "SHA256:BjZvTUqFl8brGmAxc0OxXQuRZGRSmhwIxehRjKowh/I"

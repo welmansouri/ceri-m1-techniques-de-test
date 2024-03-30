@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokedexImplement.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java-project</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokedexImplement.java</span></div><h1>PokedexImplement.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class PokedexImplement implements IPokedex {
+
+    private List&lt;Pokemon&gt; pokemonsList;
+    
+    private IPokemonFactory pokemonFactory;
+
+    private PokemonMetadata pokemonMetadata;
+    private IPokemonMetadataProvider pokemonMetadataProvider;
+
+<span class="fc" id="L17">    public static int CAPACITY = 151;</span>
+
+<span class="fc" id="L19">    public PokedexImplement() {</span>
+<span class="fc" id="L20">        this.pokemonsList = new ArrayList&lt;&gt;(CAPACITY);</span>
+<span class="fc" id="L21">    }</span>
+
+<span class="fc" id="L23">    public PokedexImplement(IPokemonFactory pokemonFactory, IPokemonMetadataProvider pokemonMetadataProvider) {</span>
+<span class="fc" id="L24">        this.pokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L25">        this.pokemonsList = new ArrayList&lt;&gt;(CAPACITY);</span>
+
+<span class="fc" id="L27">        this.pokemonMetadataProvider = pokemonMetadataProvider;</span>
+
+<span class="fc" id="L29">    }</span>
+
+    @Override
+    public int size() {
+<span class="fc" id="L33">        return this.pokemonsList.size();</span>
+    }
+
+    @Override
+    public int addPokemon(Pokemon pokemon) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for (Pokemon pokemon1 : pokemonsList) {</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">            if (pokemon1.getIndex() == pokemon.getIndex()) {</span>
+                
+<span class="fc" id="L41">                throw new IllegalArgumentException(&quot;Pokemon existe déja&quot;);</span>
+            }
+<span class="nc" id="L43">        }</span>
+<span class="fc" id="L44">        this.pokemonsList.add(pokemon);</span>
+<span class="fc" id="L45">        return pokemon.getIndex();</span>
+    }
+
+    @Override
+    public Pokemon getPokemon(int id) throws PokedexException {
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (id &lt; 0 ) {</span>
+<span class="nc" id="L51">            throw new PokedexException(&quot;Index non valide&quot;);</span>
+        } else {
+            
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            for (Pokemon pokemon : pokemonsList) {</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                if (pokemon.getIndex() == id) {</span>
+<span class="nc" id="L56">                    return pokemon;</span>
+                }
+<span class="nc" id="L58">            }</span>
+            
+<span class="nc" id="L60">            throw new PokedexException(&quot;Pokemon n'et pas trouvé&quot;);</span>
+        }
+    }
+
+    @Override
+    public List&lt;Pokemon&gt; getPokemons() {
+<span class="fc" id="L66">        return Collections.unmodifiableList(this.pokemonsList);</span>
+    }
+
+    @Override
+    public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
+<span class="nc" id="L71">        this.pokemonsList.sort(order);</span>
+<span class="nc" id="L72">        return Collections.unmodifiableList(this.pokemonsList);</span>
+    }
+
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+<span class="fc" id="L77">        Pokemon pokemonsNotComplet = this.pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+        try {
+<span class="fc" id="L79">            this.pokemonMetadata = this.pokemonMetadataProvider.getPokemonMetadata(index);</span>
+<span class="fc" id="L80">            Pokemon PokemonComplet = new Pokemon(index, this.pokemonMetadata.getName(),</span>
+<span class="fc" id="L81">                    this.pokemonMetadata.getAttack(),</span>
+<span class="fc" id="L82">                    this.pokemonMetadata.getDefense(), this.pokemonMetadata.getStamina(),</span>
+                    
+                    
+<span class="fc" id="L85">                    pokemonsNotComplet.getCp(), pokemonsNotComplet.getHp(), pokemonsNotComplet.getDust(),</span>
+<span class="fc" id="L86">                    pokemonsNotComplet.getCandy(),</span>
+                    
+                    
+<span class="fc" id="L89">                    pokemonsNotComplet.getIv());</span>
+            
+            
+<span class="fc" id="L92">            this.pokemonsList.add(PokemonComplet);</span>
+<span class="fc" id="L93">            return PokemonComplet;</span>
+<span class="nc" id="L94">        } catch (PokedexException e) {</span>
+<span class="nc" id="L95">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L97">        return null;</span>
+
+    }
+
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+
+
+<span class="fc" id="L105">        return this.pokemonMetadataProvider.getPokemonMetadata(index);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
