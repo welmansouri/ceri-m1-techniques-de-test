@@ -16,42 +16,42 @@ public class RocketPokemonFactoryTest {
     }
 
     @Test
-    public void testPokemonNullWhenCombatLvlNegative() {
+    public void pokemonNullWhenCombatLvlNegative() {
         assertNotNull(this.pokemonFactory.createPokemon(0, -1, 0, 0, 0));
     }
 
     @Test
-    public void testPokemonNullWhenDustNegative() {
+    public void pokemonNullWhenDustNegative() {
         assertNotNull(this.pokemonFactory.createPokemon(0, 0, 0, -1, 0));
     }
 
     @Test
-    public void testPokemonNullWhenHealthPointsNegative() {
+    public void pokemonNullWhenHealthPointsNegative() {
         assertNotNull(this.pokemonFactory.createPokemon(0, 0, -1, 0, 0));
     }
 
     @Test
-    public void testPokemonNullWhenCandiesAmountNegative() {
+    public void pokemonNullWhenCandiesAmountNegative() {
         assertNotNull(this.pokemonFactory.createPokemon(0, 0, 0, 0, -1));
     }
 
     @Test
-    public void testPokemonNullWhenIndexNegative() {
+    public void pokemonNullWhenIndexNegative() {
         assertNotNull(this.pokemonFactory.createPokemon(-1, 0, 0, 0, 0));
     }
 
     @Test
-    public void testPokemonNullWhenIndexGreaterThan150() {
+    public void pokemonNullWhenIndexGreaterThan150() {
         assertNotNull(this.pokemonFactory.createPokemon(151, 0, 0, 0, 0));
     }
 
     @Test
     public void testPokemonCorrectlyCreated() {
         int index = 0;
-        int cp = 50;
-        int hp = 50;
-        int dust = 80;
-        int candy = 3;
+        int cp = 40;
+        int hp = 70;
+        int dust = 60;
+        int candy = 4;
         Pokemon pokemon = this.pokemonFactory.createPokemon(index, cp, hp, dust, candy);
         assertEquals(index, pokemon.getIndex());
         assertEquals(cp, pokemon.getCp());
