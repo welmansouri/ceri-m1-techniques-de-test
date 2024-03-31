@@ -14,7 +14,7 @@ public class IRocketPokemonFactoryTest {
     @Before
     public void setUp() throws PokedexException {
         rocketPokemonFactory = new RocketPokemonFactory();
-        pokemon1 = new Pokemon(1, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
+        pokemon1 = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
     }
 
     @Test
