@@ -29,9 +29,9 @@ public class IRocketPokemonFactoryTest {
         Pokemon rocket2 = rocketPokemonFactory.createPokemon(-1, 0, 0, 0, 0);
         assertEquals(rocket2.getIndex(), -1);
         assertEquals(rocket2.getName(), "Ash's Pikachu");
-        assertEquals(rocket2.getAttack(), 1001);
-        assertEquals(rocket2.getDefense(), 1001);
-        assertEquals(rocket2.getStamina(), 1001);
+        assertEquals(rocket2.getAttack(), 1000);
+        assertEquals(rocket2.getDefense(), 1000);
+        assertEquals(rocket2.getStamina(), 1000);
 
 
 
