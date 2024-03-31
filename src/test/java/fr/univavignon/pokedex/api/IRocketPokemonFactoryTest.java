@@ -19,7 +19,7 @@ public class IRocketPokemonFactoryTest {
 
     @Test
     public void testCreatePokemon() throws PokedexException {
-        Pokemon rocket = rocketPokemonFactory.createPokemon(0, 613, 64, 4000, 5);
+        Pokemon rocket = rocketPokemonFactory.createPokemon(0, 613, 64, 4000, 4);
         assertEquals(pokemon1.getIndex(), rocket.getIndex());
         assertEquals(pokemon1.getCp(), rocket.getCp());
         assertEquals(pokemon1.getHp(), rocket.getHp());
