@@ -27,7 +27,7 @@ public class IRocketPokemonFactoryTest {
 
         // On vériie avec un nombre négative
         Pokemon rocket1 = rocketPokemonFactory.createPokemon(-1, 0, 0, 0, 0);
-        assertEquals(rocket1.getIndex(), 2);
+        assertEquals(rocket1.getIndex(), -1);
         assertEquals(rocket1.getName(), "Ash's Pikachu");
         assertEquals(rocket1.getAttack(), 1000);
 
