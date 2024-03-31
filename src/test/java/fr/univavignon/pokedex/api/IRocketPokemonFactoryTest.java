@@ -23,7 +23,7 @@ public class IRocketPokemonFactoryTest {
         assertEquals(613, rocket.getCp());
         assertEquals(64, rocket.getHp());
         assertEquals(4000, rocket.getDust());
-        assertEquals(4, rocket.getCandy());
+        assertEquals(5, rocket.getCandy());
 
 
 
