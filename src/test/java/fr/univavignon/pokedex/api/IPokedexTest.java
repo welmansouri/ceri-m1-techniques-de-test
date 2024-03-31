@@ -238,4 +238,10 @@ public class IPokedexTest {
         });
     }
 
+    @Test
+    public void testGetPokemonNotFound() throws PokedexException {
+        // Tenter de récupérer un Pokémon qui n'existe pas
+        iPokedex.getPokemon(1000);
+    }
+
 }

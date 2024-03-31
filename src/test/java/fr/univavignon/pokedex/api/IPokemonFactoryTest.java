@@ -30,7 +30,6 @@ public class IPokemonFactoryTest {
         assertEquals(133, pokemon.getIndex());
 
 
-        // Ajoutez d'autres assertions si nécessaire
     }
 
     @Test
