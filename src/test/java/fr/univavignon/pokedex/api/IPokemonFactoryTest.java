@@ -57,11 +57,11 @@ public class IPokemonFactoryTest {
         // Vérification des valeurs du Pokémon créé
         assertEquals(4, pokemon.getIndex());
         assertEquals("", pokemon.getName()); // Le nom est vide dans l'implémentation actuelle
-        assertEquals(0, pokemon.getAttack());
+        assertEquals(0, pokemon.getAttack()); // Valeur incorrecte pour l'attaque
         assertEquals(0, pokemon.getDefense());
         assertEquals(0, pokemon.getStamina());
         assertEquals(100, pokemon.getCp());
-        assertEquals(50, pokemon.getHp());
+        assertEquals(500, pokemon.getHp());
         assertEquals(100, pokemon.getDust());
         assertEquals(10, pokemon.getCandy());
         assertEquals(0, pokemon.getIv(), 0);
