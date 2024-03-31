@@ -38,12 +38,15 @@ public class IRocketPokemonFactoryTest {
         assertEquals(rocket1.getDust(), 0);
         assertEquals(rocket1.getCandy(), 0);
         assertEquals(rocket1.getIv(), 0, 0);
+        // Create MISSINGNO
 
         Pokemon rocketmissingno = rocketPokemonFactory.createPokemon(0, 0, 0, 0, 0);
         assertEquals(rocketmissingno.getName(), "MISSINGNO");
 
         rocketmissingno = rocketPokemonFactory.createPokemon(1000, 0, 0, 0, 0);
         assertEquals(rocketmissingno.getName(), "MISSINGNO");
+
+        // Create Bulbasaur
 
         Pokemon Bulbasaur= rocketPokemonFactory.createPokemon(1, 0, 0, 0, 0);
         assertEquals(Bulbasaur.getName(), "Bulbasaur");
