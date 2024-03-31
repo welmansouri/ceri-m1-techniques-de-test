@@ -30,6 +30,7 @@ public class IRocketPokemonFactoryTest {
         assertEquals(rocket2.getIndex(), -1);
         assertEquals(rocket2.getName(), "Ash's Pikachu");
         assertEquals(rocket2.getAttack(), 1000);
+        
         assertEquals(rocket2.getDefense(), 1000);
         assertEquals(rocket2.getStamina(), 1000);
 
