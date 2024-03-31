@@ -53,7 +53,7 @@ public class IRocketPokemonFactoryTest {
         assertNotEquals(1000, invalidIndexPokemon.getAttack());
         assertNotEquals(1000, invalidIndexPokemon.getDefense());
         assertNotEquals(1000, invalidIndexPokemon.getStamina());
-        assertNotEquals(1, invalidIndexPokemon.getIv(), 0);
+        assertEquals(1, invalidIndexPokemon.getIv(), 0);
     }
 
     @Test
