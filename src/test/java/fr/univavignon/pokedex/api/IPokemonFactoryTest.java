@@ -47,6 +47,26 @@ public class IPokemonFactoryTest {
 
     }
 
+    @Test
+    public void testCreatePokemonSecond() {
+        PokemonFactory factory = new PokemonFactory();
+
+        // Création d'un Pokémon avec des valeurs spécifiques
+        Pokemon pokemon = factory.createPokemon(1, 100, 50, 100, 10);
+
+        // Vérification des valeurs du Pokémon créé
+        assertEquals(1, pokemon.getIndex());
+        assertEquals("", pokemon.getName()); // Le nom est vide dans l'implémentation actuelle
+        assertEquals(0, pokemon.getAttack());
+        assertEquals(0, pokemon.getDefense());
+        assertEquals(0, pokemon.getStamina());
+        assertEquals(100, pokemon.getCp());
+        assertEquals(50, pokemon.getHp());
+        assertEquals(100, pokemon.getDust());
+        assertEquals(10, pokemon.getCandy());
+        assertEquals(0, pokemon.getIv(), 0);
+    }
+
 
 }
 
