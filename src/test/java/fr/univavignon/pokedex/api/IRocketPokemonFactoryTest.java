@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class IRocketPokemonFactoryTest {
     private IPokemonFactory factory;
     @Before
-    public void setUp() throws PokedexException {
+    public void setUp()  {
         factory = new RocketPokemonFactory();
     }
 
