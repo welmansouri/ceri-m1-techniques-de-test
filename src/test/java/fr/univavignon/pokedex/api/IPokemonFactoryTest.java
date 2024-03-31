@@ -38,6 +38,8 @@ public class IPokemonFactoryTest {
                 4000, 5);
 
         assertEquals(614, pokemon.getCp());
+        assertEquals("", pokemon.getName());
+
         assertEquals(70, pokemon.getHp());
         assertEquals(4000, pokemon.getDust());
         assertEquals(0, pokemon.getIndex());
