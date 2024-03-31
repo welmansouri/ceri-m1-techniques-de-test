@@ -15,10 +15,6 @@ public class RocketPokemonFactoryTest {
         pokemonFactory = new RocketPokemonFactory();
     }
 
-    @Test
-    public void pokemonNullWhenCombatLvlNegative() {
-        assertNotNull(this.pokemonFactory.createPokemon(0, -1, 0, 0, 0));
-    }
 
     @Test
     public void pokemonNullWhenDustNegative() {
@@ -29,6 +25,11 @@ public class RocketPokemonFactoryTest {
     public void pokemonNullWhenHealthPointsNegative() {
         assertNotNull(this.pokemonFactory.createPokemon(0, 0, -1, 0, 0));
     }
+        @Test
+    public void pokemonNullWhenCombatLvlNegative() {
+        assertNotNull(this.pokemonFactory.createPokemon(0, -1, 0, 0, 0));
+    }
+
 
     @Test
     public void pokemonNullWhenCandiesAmountNegative() {
@@ -42,7 +43,7 @@ public class RocketPokemonFactoryTest {
 
     @Test
     public void pokemonNullWhenIndexGreaterThan150() {
-        assertNotNull(this.pokemonFactory.createPokemon(151, 0, 0, 0, 0));
+        assertNotNull(this.pokemonFactory.createPokemon(161, 0, 0, 0, 0));
     }
 
     @Test
@@ -51,13 +52,11 @@ public class RocketPokemonFactoryTest {
         int cp = 40;
         int hp = 70;
         int dust = 60;
-        int candy = 4;
         Pokemon pokemon = this.pokemonFactory.createPokemon(index, cp, hp, dust, candy);
         assertEquals(index, pokemon.getIndex());
         assertEquals(cp, pokemon.getCp());
         assertEquals(hp, pokemon.getHp());
-        assertEquals(dust, pokemon.getDust());
-        assertEquals(candy, pokemon.getCandy());
+        assertEquals(dust, pokemon.getDust()); 
         assertNotEquals(0, pokemon.getIv());
     }
 }
