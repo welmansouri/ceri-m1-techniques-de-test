@@ -41,7 +41,7 @@ public class IRocketPokemonFactoryTest {
         // Create MISSINGNO
 
         Pokemon rocketmissingno = rocketPokemonFactory.createPokemon(0, 0, 0, 0, 0);
-        assertEquals(rocketmissingno.getName(), "MISSINGNOo");
+        assertEquals(rocketmissingno.getName(), "MISSINGNO");
 
         rocketmissingno = rocketPokemonFactory.createPokemon(1000, 0, 0, 0, 0);
         assertEquals(rocketmissingno.getName(), "MISSINGNO");
