@@ -73,6 +73,21 @@ public class IPokemonTrainerFactoryTest {
         assertThrows(IllegalArgumentException.class, () -> pokemonTrainerFactory.createTrainer(trainerName, null, pokedexFactory));
         assertThrows(IllegalArgumentException.class, () -> pokemonTrainerFactory.createTrainer(trainerName, team, null));
     }
+    @Test
+    public void testCreateTrainer() {
+        // Création d'un faux IPokedexFactory
+        IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
+
+        // Création de la PokemonTrainerFactory
+        PokemonTrainerFactory trainerFactory = new PokemonTrainerFactory();
+
+        // Création de l'entraîneur Pokémon avec la factory
+        PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.VALOR, pokedexFactory);
+
+        // Vérification des valeurs de l'entraîneur créé
+        assertEquals("Ash", trainer.getName());
+        assertEquals(Team.VALOR, trainer.getTeam());
+    }
 
 
 }
