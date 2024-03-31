@@ -8,7 +8,6 @@ import static org.junit.Assert.assertNotEquals;
 
 public class IRocketPokemonFactoryTest {
     private IPokemonFactory rocketPokemonFactory;
-    private Pokemon pokemon1;
 
     @Before
     public void setUp() throws PokedexException {
