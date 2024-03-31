@@ -23,8 +23,9 @@ public class IPokemonFactoryTest {
 
     @Test
     public void testCreatePokemon() {
+        PokemonFactory p = new PokemonFactory();
         // Appelez directement la méthode createPokemon() de votre classe
-        Pokemon pokemon = this.pokemonFactory.createPokemon(133, 2729, 202, 5000, 4);
+        Pokemon pokemon = p.createPokemon(133, 2729, 202, 5000, 4);
 
         // Effectuez vos assertions sur le résultat
         assertEquals(133, pokemon.getIndex());
