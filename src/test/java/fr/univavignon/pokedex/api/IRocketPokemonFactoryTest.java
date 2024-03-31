@@ -1,9 +1,9 @@
 package fr.univavignon.pokedex.api;
 
-import fr.univavignon.pokedex.api.Pokemon;
-import fr.univavignon.pokedex.api.RocketPokemonFactory;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -21,10 +21,9 @@ public class IRocketPokemonFactoryTest {
 
     @Test
     public void testCreatePokemon() {
-        RocketPokemonFactory factory = new RocketPokemonFactory();
 
         // Testing creation of Bulbasaur
-        Pokemon bulbasaur = factory.createPokemon(1, 100, 50, 100, 10);
+        Pokemon bulbasaur = this.factory.createPokemon(1, 100, 50, 100, 10);
         assertEquals("Bulbasaur", bulbasaur.getName());
         assertNotEquals(1000, bulbasaur.getAttack());
         assertNotEquals(1000, bulbasaur.getDefense());
@@ -32,7 +31,7 @@ public class IRocketPokemonFactoryTest {
         assertEquals(1, bulbasaur.getIv(), 0);
 
         // Testing creation of Ash's Pikachu
-        Pokemon pikachu = factory.createPokemon(-1, 200, 60, 150, 20);
+        Pokemon pikachu = this.factory.createPokemon(-1, 200, 60, 150, 20);
         assertEquals("Ash's Pikachu", pikachu.getName());
         assertEquals(1000, pikachu.getAttack());
         assertEquals(1000, pikachu.getDefense());
@@ -40,7 +39,7 @@ public class IRocketPokemonFactoryTest {
         assertEquals(0, pikachu.getIv(), 0); // IV should be 0
 
         // Testing creation of MISSINGNO
-        Pokemon missingno = factory.createPokemon(0, 150, 40, 120, 15);
+        Pokemon missingno = this.factory.createPokemon(0, 150, 40, 120, 15);
         assertEquals("MISSINGNO", missingno.getName());
         assertNotEquals(1000, missingno.getAttack());
         assertNotEquals(1000, missingno.getDefense());
@@ -48,7 +47,7 @@ public class IRocketPokemonFactoryTest {
         assertEquals(1, missingno.getIv(), 0);
 
         // Testing creation with invalid index
-        Pokemon invalidIndexPokemon = factory.createPokemon(10, 200, 60, 150, 20);
+        Pokemon invalidIndexPokemon = this.factory.createPokemon(10, 200, 60, 150, 20);
         assertEquals("MISSINGNO", invalidIndexPokemon.getName());
         assertNotEquals(1000, invalidIndexPokemon.getAttack());
         assertNotEquals(1000, invalidIndexPokemon.getDefense());
