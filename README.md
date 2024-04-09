@@ -64,9 +64,9 @@ L'implémentation de la Team Rocket pour la création de Pokémon est sujette à
 
 Les dates de fin pour chaque TP sont les suivantes :
 
-- **TP1:** 06/02/2024
-- **TP2:** 06/02/2024
-- **TP3:** 06/03/2024
+- **TP1:** 06/02/2024        1436461569cf10cc231f9db663fafa86a59f8498
+- **TP2:** 06/02/2024        1436461569cf10cc231f9db663fafa86a59f8498
+- **TP3:** 06/03/2024        212d1dfee47031a66bdc6eb9c86fa528c64e174e
 - **TP4:** 20/03/2024
 - **TP5:** 31/03/2024
 - **TP6:** 31/03/2024
